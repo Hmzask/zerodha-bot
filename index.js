@@ -40,7 +40,7 @@ async function placeOrder() {
         quantity: 10,
         order_type: 'MARKET',
         product: 'CNC',
-        transaction_type: 'BUY',
+        transaction_type: 'SELL',
         validity: 'DAY' 
       };
       

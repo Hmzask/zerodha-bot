@@ -1,4 +1,6 @@
-import { KiteConnect } from "kiteconnect";               //SDE kit from Zerodha.
+import { KiteConnect } from "kiteconnect";                //SDE kit from Zerodha.
+import dotenv from 'dotenv';
+dotenv.config();
 
 const apiKey = process.env.API_KEY;                      // API key from Zerodha.
 
@@ -29,11 +31,11 @@ async function placeOrder() {
     try {
       const orderParams = {
         exchange: 'NSE',
-        tradingsymbol: 'INVENTURE',
-        quantity: 10,
+        tradingsymbol: 'YESBANK',
+        quantity: 1,
         order_type: 'MARKET',
-        product: 'CNC',
-        transaction_type: 'SELL',
+        product: 'MIS',
+        transaction_type: 'BUY',
         validity: 'DAY' 
       };
       

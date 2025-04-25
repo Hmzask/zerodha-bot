@@ -18,13 +18,15 @@ A JavaScript-based trading bot that interacts with the Zerodha API to automate s
 - **Docker** (for containerization)
 - ***MIT License***
 
+- -> After cloning the repo, create a .env file
+put you all the keys into it.  you are 
+good to go.
+
 ## 📦 Getting Started
 
 ### 1. Clone the repository
 
--> After cloning the repo, create a .env file
-put you all the keys into it.  you are 
-good to go.
+
 
 ```bash
 git clone https://github.com/Hmzask/zerodha-trade-bot.git

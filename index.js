@@ -1,14 +1,19 @@
-import { KiteConnect } from "kiteconnect"; //SDE kit from Zerodha.
+import { KiteConnect } from "kiteconnect";               //SDE kit from Zerodha.
 
-const apiKey = "b1at9vmtynaeoq1w"; // API key from Zerodha.
-const accessToken = "I2zvhHIycV7NUl7zprI0Dd1Nt7R6zeWG" // Access token provided by Zerodha. when you authenticate using the 
+const apiKey = process.env.API_KEY;                      // API key from Zerodha.
+
+const apiSecret = process.env.API_SECRET;                // API secret provided by Zerodha.
+
+const accessToken = process.env.ACCESS_TOKEN;            // Access token provided by Zerodha. when you authenticate using the 
 //  API key.
-const requestToken = "QjN33qA3wDfHfc1P82n20sWSuvMQKjQi" // Request token provided by Zerodha. when you authenticate using the 
-const apiSecret = "p6yqpo7rt0btkxjw93k30059gticmf4s" // API secret provided by Zerodha.
-const kc = new KiteConnect({ api_key: apiKey }); // Main app initialisation
-kc.setAccessToken(accessToken); // Set the access token.
 
-console.log(kc.getLoginURL()); //Get the login URL. only needed for the first time. to get the request token.
+const requestToken = process.env.REQUEST_TOKEN;          // Request token provided by Zerodha. when you authenticate using the apikey and secret key
+
+const kc = new KiteConnect({ api_key: apiKey });         // Main app initialisation
+
+kc.setAccessToken(accessToken);                         // Set the access token.
+
+console.log(kc.getLoginURL());                         //Get the login URL. only needed for the first time. to get the request  token.
 
 async function getProfile() {
   try {
@@ -19,18 +24,6 @@ async function getProfile() {
   }
 }
 getProfile();
-
-// async function generateSession() {
-//   try {
-//     const response = await kc.generateSession(requestToken, apiSecret);
-//     kc.setAccessToken(response.access_token);
-//     console.log("Session generated:", response);
-//   } catch (err) {
-//     console.error("Error generating session:", err);
-//   }
-// }
-// generateSession();
-
 
 async function placeOrder() {
     try {
@@ -50,6 +43,22 @@ async function placeOrder() {
       console.error("Error placing order:", err);
     }
   }
-
 placeOrder();
+
+
+
+// CAN USE THIS TO GENERATE THE REQUEST TOKEN,ACCCESS TOKEN AND API SECRET.
+
+// async function generateSession() {
+//   try {
+//     const response = await kc.generateSession(requestToken, apiSecret);
+//     kc.setAccessToken(response.access_token);
+//     console.log("Session generated:", response);
+//   } catch (err) {
+//     console.error("Error generating session:", err);
+//   }
+// }
+// generateSession();
+
+
 
